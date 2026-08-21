@@ -1,0 +1,573 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>我的炫酷网站</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            font-family:
+                Arial,
+                "Microsoft YaHei",
+                sans-serif;
+        }
+
+        /* =========================
+           导航栏
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 50px;
+
+            background: rgba(5, 5, 5, 0.9);
+
+            border-bottom: 1px solid #222;
+
+            backdrop-filter: blur(10px);
+
+            z-index: 10000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+
+            color: #00ffff;
+
+            text-shadow:
+                0 0 5px #00ffff,
+                0 0 15px #00ffff;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: #00ffff;
+
+            text-shadow:
+                0 0 10px #00ffff;
+        }
+
+        /* =========================
+           滚动公告
+        ========================= */
+
+        .notice {
+            position: fixed;
+
+            top: 70px;
+            left: 0;
+
+            width: 100%;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background: #080808;
+
+            border-bottom: 1px solid #00ffff;
+
+            z-index: 9999;
+        }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .text {
+            display: inline-block;
+
+            white-space: nowrap;
+
+            font-size: 24px;
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                red,
+                orange,
+                yellow,
+                lime,
+                cyan,
+                blue,
+                violet,
+                red
+            );
+
+            background-size: 400%;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                scroll 10s linear infinite,
+                rainbow 3s linear infinite;
+
+            filter:
+                drop-shadow(0 0 5px cyan)
+                drop-shadow(0 0 10px magenta);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes rainbow {
+            from {
+                background-position: 0%;
+            }
+
+            to {
+                background-position: 400%;
+            }
+        }
+
+        /* =========================
+           首页
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 150px 20px 80px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0, 255, 255, 0.12),
+                    transparent 45%
+                );
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #00ffff,
+                #ff00ff,
+                #ffff00,
+                #00ffff
+            );
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation: rainbow 4s linear infinite;
+
+            text-shadow:
+                0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .hero p {
+            max-width: 650px;
+
+            color: #aaa;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            padding: 15px 35px;
+
+            border: 2px solid #00ffff;
+
+            border-radius: 50px;
+
+            color: #00ffff;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: #00ffff;
+
+            color: #000;
+
+            box-shadow:
+                0 0 10px #00ffff,
+                0 0 30px #00ffff,
+                0 0 60px #00ffff;
+        }
+
+        /* =========================
+           内容区域
+        ========================= */
+
+        .section {
+            padding: 100px 30px;
+
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 40px;
+
+            color: #00ffff;
+
+            margin-bottom: 50px;
+
+            text-shadow:
+                0 0 10px #00ffff;
+        }
+
+        /* =========================
+           卡片
+        ========================= */
+
+        .cards {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+            padding: 35px 25px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 15px;
+
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            border-color: #00ffff;
+
+            box-shadow:
+                0 0 15px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(0, 255, 255, 0.15);
+        }
+
+        .card-icon {
+            font-size: 50px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+
+            margin-bottom: 15px;
+
+            color: white;
+        }
+
+        .card p {
+            color: #888;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           页脚
+        ========================= */
+
+        footer {
+            padding: 30px;
+
+            text-align: center;
+
+            border-top: 1px solid #222;
+
+            color: #666;
+        }
+
+        /* =========================
+           手机适配
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav {
+                gap: 12px;
+            }
+
+            .nav a {
+                font-size: 13px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .notice {
+                top: 70px;
+            }
+
+            .text {
+                font-size: 18px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         导航栏
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            MY WEBSITE
+        </div>
+
+        <nav class="nav">
+
+            <a href="#home">首页</a>
+
+            <a href="#features">功能</a>
+
+            <a href="#about">关于</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         彩色滚动公告
+    ========================= -->
+
+    <div class="notice">
+
+        <div class="marquee">
+
+            <div class="text">
+                🌈 欢迎来到我的网站！ ✨ 最新消息：网站正在建设中！ 🚀
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         首页
+    ========================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <h1>
+                欢迎来到我的世界
+            </h1>
+
+            <p>
+                这是一个使用 HTML、CSS 和 JavaScript
+                创建的炫酷网页。
+                你可以继续添加图片、视频、音乐和各种功能。
+            </p>
+
+            <a
+                href="#features"
+                class="hero-button">
+                探索更多
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             功能
+        ========================= -->
+
+        <section
+            class="section"
+            id="features">
+
+            <h2>
+                网站功能
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🌈
+                    </div>
+
+                    <h3>
+                        彩色效果
+                    </h3>
+
+                    <p>
+                        炫酷的渐变颜色和霓虹发光效果。
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        快速响应
+                    </h3>
+
+                    <p>
+                        支持电脑、平板和手机屏幕。
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        💎
+                    </div>
+
+                    <h3>
+                        自定义
+                    </h3>
+
+                    <p>
+                        可以自由修改文字、颜色和布局。
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             关于
+        ========================= -->
+
+        <section
+            class="section"
+            id="about">
+
+            <h2>
+                关于网站
+            </h2>
+
+            <p style="color:#888; font-size:18px;">
+                这是我们一步一步制作出来的网站。
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         页脚
+    ========================= -->
+
+    <footer>
+
+        © 2026 我的炫酷网站
+
+    </footer>
+
+</body>
+</html>
+```
