@@ -19,13 +19,35 @@
         }
 
         body {
-            background: #050505;
-            color: white;
-            font-family:
-                Arial,
-                "Microsoft YaHei",
-                sans-serif;
-        }
+            body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2,
+        #ff6b9d,
+        #00c6ff
+    );
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    color: white;
+    text-align: center;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
         /* =========================
            导航栏
