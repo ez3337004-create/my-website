@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>阿木的超级炫酷网站</title>
 
 <style>
@@ -40,7 +39,206 @@ body{
     100%{background-position:0 50%}
 }
 
-/* ===== 进度条 ===== */
+/* =========================
+   登录 / 注册
+========================= */
+
+#authPage{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at 20% 20%,#00ffff33,transparent 30%),
+        radial-gradient(circle at 80% 80%,#ff00ff33,transparent 30%),
+        linear-gradient(135deg,#050014,#09001f,#001b2e);
+    overflow:auto;
+}
+
+.auth-box{
+    position:relative;
+    z-index:2;
+    width:420px;
+    max-width:92%;
+    padding:40px 30px;
+    background:rgba(5,5,20,.95);
+    border:2px solid cyan;
+    border-radius:25px;
+    box-shadow:
+        0 0 20px cyan,
+        0 0 60px rgba(0,255,255,.25);
+    text-align:center;
+    animation:authShow .6s ease;
+}
+
+@keyframes authShow{
+    from{
+        opacity:0;
+        transform:scale(.8) translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+.auth-logo{
+    font-size:48px;
+    margin-bottom:10px;
+    color:cyan;
+    text-shadow:
+        0 0 10px cyan,
+        0 0 30px cyan;
+}
+
+.auth-title{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.auth-subtitle{
+    color:#888;
+    margin-bottom:25px;
+}
+
+.auth-input{
+    width:100%;
+    padding:15px;
+    margin:8px 0;
+    background:#090909;
+    color:white;
+    border:1px solid #444;
+    border-radius:12px;
+    outline:none;
+    transition:.3s;
+    font-size:15px;
+}
+
+.auth-input:focus{
+    border-color:cyan;
+    box-shadow:0 0 12px rgba(0,255,255,.5);
+}
+
+.password-box{
+    position:relative;
+}
+
+.password-box input{
+    padding-right:50px;
+}
+
+.eye{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    cursor:pointer;
+    color:#aaa;
+    user-select:none;
+}
+
+.auth-btn{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:0;
+    border-radius:30px;
+    background:linear-gradient(
+        90deg,
+        cyan,
+        #008cff,
+        #ff00ff
+    );
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.auth-btn:hover{
+    transform:scale(1.03);
+    box-shadow:
+        0 0 15px cyan,
+        0 0 30px #ff00ff;
+}
+
+.auth-switch{
+    margin-top:20px;
+    color:#888;
+}
+
+.auth-switch span:last-child{
+    color:cyan;
+    cursor:pointer;
+}
+
+.auth-message{
+    min-height:24px;
+    margin-top:15px;
+    color:#ff5577;
+    font-size:14px;
+}
+
+.auth-stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.auth-star{
+    position:absolute;
+    color:white;
+    animation:authStar 5s linear infinite;
+    text-shadow:0 0 10px cyan;
+}
+
+@keyframes authStar{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+    20%{opacity:1}
+    80%{opacity:1}
+    to{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+/* =========================
+   用户信息
+========================= */
+
+.user-panel{
+    position:fixed;
+    right:20px;
+    top:80px;
+    z-index:16000;
+    padding:10px 15px;
+    background:rgba(0,0,0,.85);
+    border:1px solid cyan;
+    border-radius:20px;
+    color:cyan;
+    box-shadow:0 0 15px rgba(0,255,255,.3);
+}
+
+.logout-btn{
+    margin-left:10px;
+    padding:5px 10px;
+    border:1px solid #ff00ff;
+    border-radius:10px;
+    background:#111;
+    color:#ff00ff;
+    cursor:pointer;
+}
+
+/* =========================
+   进度条
+========================= */
 
 #progress{
     position:fixed;
@@ -58,7 +256,9 @@ body{
     z-index:99999;
 }
 
-/* ===== 鼠标光 ===== */
+/* =========================
+   鼠标光
+========================= */
 
 #cursorLight{
     position:fixed;
@@ -75,7 +275,9 @@ body{
     z-index:0;
 }
 
-/* ===== 星空 ===== */
+/* =========================
+   星空
+========================= */
 
 .stars{
     position:fixed;
@@ -107,7 +309,9 @@ body{
     }
 }
 
-/* ===== 导航 ===== */
+/* =========================
+   导航
+========================= */
 
 .navbar{
     position:fixed;
@@ -157,7 +361,9 @@ body{
     cursor:pointer;
 }
 
-/* ===== 公告 ===== */
+/* =========================
+   公告
+========================= */
 
 .notice{
     position:fixed;
@@ -207,7 +413,9 @@ body{
     to{background-position:400%}
 }
 
-/* ===== 主区域 ===== */
+/* =========================
+   主区域
+========================= */
 
 main{
     position:relative;
@@ -272,7 +480,9 @@ main{
     transform:scale(1.06);
 }
 
-/* ===== Section ===== */
+/* =========================
+   Section
+========================= */
 
 .section{
     padding:100px 25px;
@@ -286,7 +496,9 @@ main{
     text-shadow:0 0 15px cyan;
 }
 
-/* ===== 卡片 ===== */
+/* =========================
+   卡片
+========================= */
 
 .cards{
     max-width:1150px;
@@ -326,7 +538,9 @@ main{
     line-height:1.8;
 }
 
-/* ===== 时钟 ===== */
+/* =========================
+   时钟
+========================= */
 
 .clock{
     max-width:550px;
@@ -350,7 +564,9 @@ main{
     color:#aaa;
 }
 
-/* ===== 统计 ===== */
+/* =========================
+   统计
+========================= */
 
 .stats{
     max-width:850px;
@@ -377,7 +593,9 @@ main{
     color:#aaa;
 }
 
-/* ===== 游戏 ===== */
+/* =========================
+   游戏
+========================= */
 
 .game{
     max-width:600px;
@@ -415,7 +633,9 @@ main{
     font-weight:bold;
 }
 
-/* ===== AI ===== */
+/* =========================
+   AI
+========================= */
 
 .chat{
     width:500px;
@@ -509,8 +729,6 @@ main{
     cursor:pointer;
 }
 
-/* ===== 输入动画 ===== */
-
 .typing{
     display:flex;
     gap:5px;
@@ -539,7 +757,9 @@ main{
     }
 }
 
-/* ===== 日历 ===== */
+/* =========================
+   日历
+========================= */
 
 .calendar{
     max-width:650px;
@@ -590,7 +810,9 @@ main{
     font-weight:bold;
 }
 
-/* ===== 相册 ===== */
+/* =========================
+   相册
+========================= */
 
 .upload{
     margin-bottom:25px;
@@ -636,7 +858,9 @@ main{
     transform:scale(1.1);
 }
 
-/* ===== 控制 ===== */
+/* =========================
+   控制
+========================= */
 
 .controls{
     display:flex;
@@ -662,7 +886,9 @@ main{
     transform:scale(1.06);
 }
 
-/* ===== 音乐 ===== */
+/* =========================
+   音乐
+========================= */
 
 .music{
     position:fixed;
@@ -677,7 +903,9 @@ main{
     z-index:15000;
 }
 
-/* ===== 返回顶部 ===== */
+/* =========================
+   返回顶部
+========================= */
 
 #top{
     position:fixed;
@@ -695,7 +923,9 @@ main{
     font-size:20px;
 }
 
-/* ===== 点击特效 ===== */
+/* =========================
+   点击特效
+========================= */
 
 .click{
     position:fixed;
@@ -716,7 +946,9 @@ main{
     }
 }
 
-/* ===== 烟花 ===== */
+/* =========================
+   烟花
+========================= */
 
 .firework{
     position:fixed;
@@ -738,16 +970,14 @@ main{
         opacity:1;
     }
     to{
-        transform:
-            translate(
-                var(--x),
-                var(--y)
-            );
+        transform:translate(var(--x),var(--y));
         opacity:0;
     }
 }
 
-/* ===== 浅色 ===== */
+/* =========================
+   浅色模式
+========================= */
 
 body.light{
     background:
@@ -772,7 +1002,9 @@ body.light .hero p{
     color:#444;
 }
 
-/* ===== Footer ===== */
+/* =========================
+   Footer
+========================= */
 
 footer{
     padding:40px 20px;
@@ -782,7 +1014,9 @@ footer{
     z-index:2;
 }
 
-/* ===== 手机 ===== */
+/* =========================
+   手机
+========================= */
 
 @media(max-width:700px){
 
@@ -848,60 +1082,232 @@ footer{
     .section h2{
         font-size:30px;
     }
+
+    .user-panel{
+        right:10px;
+        top:125px;
+        font-size:13px;
+    }
+}
+
+@media(max-width:500px){
+
+    .auth-box{
+        padding:30px 20px;
+    }
+
+    .auth-logo{
+        font-size:35px;
+    }
+
+    .auth-title{
+        font-size:25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 进度条 -->
+<!-- =====================================================
+     登录 / 注册页面
+===================================================== -->
+
+<div id="authPage">
+
+    <div class="auth-stars" id="authStars"></div>
+
+    <div class="auth-box">
+
+        <div class="auth-logo">
+            🤖
+        </div>
+
+        <div class="auth-title" id="authTitle">
+            登录阿木网站
+        </div>
+
+        <div class="auth-subtitle" id="authSubtitle">
+            欢迎回来！
+        </div>
+
+        <input
+            id="authUsername"
+            class="auth-input"
+            type="text"
+            placeholder="请输入用户名"
+            autocomplete="username">
+
+        <div class="password-box">
+
+            <input
+                id="authPassword"
+                class="auth-input"
+                type="password"
+                placeholder="请输入密码"
+                autocomplete="current-password">
+
+            <span
+                class="eye"
+                id="passwordEye"
+                onclick="togglePassword()">
+                👁️
+            </span>
+
+        </div>
+
+        <div
+            class="password-box"
+            id="confirmBox"
+            style="display:none;">
+
+            <input
+                id="authConfirm"
+                class="auth-input"
+                type="password"
+                placeholder="请再次输入密码"
+                autocomplete="new-password">
+
+        </div>
+
+        <button
+            class="auth-btn"
+            id="authButton"
+            onclick="submitAuth()">
+
+            🚀 登录
+
+        </button>
+
+        <div
+            class="auth-message"
+            id="authMessage">
+        </div>
+
+        <div class="auth-switch">
+
+            <span id="switchText">
+                还没有账号？
+            </span>
+
+            <span
+                id="switchButton"
+                onclick="switchAuth()">
+
+                立即注册
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     进度条
+===================================================== -->
+
 <div id="progress"></div>
 
+
 <!-- 鼠标光 -->
+
 <div id="cursorLight"></div>
 
+
 <!-- 星空 -->
+
 <div class="stars" id="stars"></div>
 
-<!-- 导航 -->
+
+<!-- =====================================================
+     导航
+===================================================== -->
+
 <header class="navbar">
 
     <div class="logo">
         🤖 AMU WEBSITE
     </div>
 
-    <div class="menu" onclick="toggleMenu()">
+    <div
+        class="menu"
+        onclick="toggleMenu()">
+
         ☰
+
     </div>
 
     <nav class="nav" id="nav">
 
         <a href="#home">首页</a>
+
         <a href="#features">功能</a>
+
         <a href="#clockSection">时钟</a>
+
         <a href="#calendarSection">日历</a>
+
         <a href="#game">游戏</a>
+
         <a href="#gallery">相册</a>
+
         <a href="#chat">机器人</a>
 
     </nav>
 
 </header>
 
-<!-- 公告 -->
+
+<!-- =====================================================
+     用户信息
+===================================================== -->
+
+<div
+    class="user-panel"
+    id="userPanel"
+    style="display:none;">
+
+    👤
+    <span id="currentUser"></span>
+
+    <button
+        class="logout-btn"
+        onclick="logout()">
+
+        退出
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     公告
+===================================================== -->
+
 <div class="notice">
+
     <div class="notice-text">
-        🌈 欢迎来到阿木的超级网站！ ✨
-        🤖 AI小助手已上线！
+
+        🌈 欢迎来到阿木的超级网站！
+        ✨ 🤖 AI小助手已上线！
         🎮 小游戏等待挑战！
         🚀 更多功能正在持续升级！
+
     </div>
+
 </div>
 
 
 <main>
 
-<!-- 首页 -->
+<!-- =====================================================
+     首页
+===================================================== -->
+
 <section class="hero" id="home">
 
     <h1>
@@ -909,73 +1315,129 @@ footer{
     </h1>
 
     <p>
+
         🚀 一个由 HTML + CSS + JavaScript
         打造的超级炫酷个人网站。
+
         <br>
+
         🤖 AI · 🎮 游戏 · 🎵 音乐 · 🖼️ 相册 ·
         🕒 时钟 · 📅 日历 · ✨ 特效
+
     </p>
 
-    <a href="#features" class="btn">
+    <a
+        href="#features"
+        class="btn">
+
         🚀 开始探索
+
     </a>
 
 </section>
 
 
-<!-- 功能 -->
-<section class="section" id="features">
+<!-- =====================================================
+     功能
+===================================================== -->
 
-    <h2>🔥 网站功能</h2>
+<section
+    class="section"
+    id="features">
+
+    <h2>
+        🔥 网站功能
+    </h2>
 
     <div class="cards">
 
         <div class="card">
+
             <div class="icon">🌌</div>
-            <h3>星空特效</h3>
+
+            <h3>
+                星空特效
+            </h3>
+
             <p>
                 动态星星、鼠标光效和点击粒子。
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🤖</div>
-            <h3>AI小助手</h3>
+
+            <h3>
+                AI小助手
+            </h3>
+
             <p>
                 可以和阿木网站机器人聊天。
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🎮</div>
-            <h3>小游戏</h3>
+
+            <h3>
+                小游戏
+            </h3>
+
             <p>
                 猜数字、反应测试、幸运抽奖。
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🎨</div>
-            <h3>主题系统</h3>
+
+            <h3>
+                主题系统
+            </h3>
+
             <p>
                 随机颜色、夜间和白天模式。
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">🖼️</div>
-            <h3>个人相册</h3>
+
+            <h3>
+                个人相册
+            </h3>
+
             <p>
                 可以选择图片并在浏览器中展示。
             </p>
+
         </div>
 
+
         <div class="card">
+
             <div class="icon">💾</div>
-            <h3>自动保存</h3>
+
+            <h3>
+                自动保存
+            </h3>
+
             <p>
                 聊天记录、主题和访问次数自动保存。
             </p>
+
         </div>
 
     </div>
@@ -983,10 +1445,17 @@ footer{
 </section>
 
 
-<!-- 时钟 -->
-<section class="section" id="clockSection">
+<!-- =====================================================
+     时钟
+===================================================== -->
 
-    <h2>🕒 实时时间</h2>
+<section
+    class="section"
+    id="clockSection">
+
+    <h2>
+        🕒 实时时间
+    </h2>
 
     <div class="clock">
 
@@ -1003,26 +1472,54 @@ footer{
 </section>
 
 
-<!-- 统计 -->
+<!-- =====================================================
+     统计
+===================================================== -->
+
 <section class="section">
 
-    <h2>📊 网站数据</h2>
+    <h2>
+        📊 网站数据
+    </h2>
 
     <div class="stats">
 
         <div class="stat">
-            <strong id="visits">0</strong>
-            <span>访问次数</span>
+
+            <strong id="visits">
+                0
+            </strong>
+
+            <span>
+                访问次数
+            </span>
+
         </div>
 
-        <div class="stat">
-            <strong>∞</strong>
-            <span>炫酷指数</span>
-        </div>
 
         <div class="stat">
-            <strong>100%</strong>
-            <span>快乐程度</span>
+
+            <strong>
+                ∞
+            </strong>
+
+            <span>
+                炫酷指数
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                100%
+            </strong>
+
+            <span>
+                快乐程度
+            </span>
+
         </div>
 
     </div>
@@ -1030,10 +1527,17 @@ footer{
 </section>
 
 
-<!-- 日历 -->
-<section class="section" id="calendarSection">
+<!-- =====================================================
+     日历
+===================================================== -->
 
-    <h2>📅 日历</h2>
+<section
+    class="section"
+    id="calendarSection">
+
+    <h2>
+        📅 日历
+    </h2>
 
     <div class="calendar">
 
@@ -1051,17 +1555,27 @@ footer{
 
         </div>
 
-        <div class="calendar-grid" id="calendar"></div>
+        <div
+            class="calendar-grid"
+            id="calendar">
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- 游戏 -->
-<section class="section" id="game">
+<!-- =====================================================
+     猜数字
+===================================================== -->
 
-    <h2>🎮 幸运数字</h2>
+<section
+    class="section"
+    id="game">
+
+    <h2>
+        🎮 幸运数字
+    </h2>
 
     <div class="game">
 
@@ -1093,10 +1607,15 @@ footer{
 </section>
 
 
-<!-- 反应游戏 -->
+<!-- =====================================================
+     反应速度
+===================================================== -->
+
 <section class="section">
 
-    <h2>⚡ 反应速度测试</h2>
+    <h2>
+        ⚡ 反应速度测试
+    </h2>
 
     <div class="game">
 
@@ -1117,10 +1636,17 @@ footer{
 </section>
 
 
-<!-- 相册 -->
-<section class="section" id="gallery">
+<!-- =====================================================
+     相册
+===================================================== -->
 
-    <h2>🖼️ 我的相册</h2>
+<section
+    class="section"
+    id="gallery">
+
+    <h2>
+        🖼️ 我的相册
+    </h2>
 
     <div class="upload">
 
@@ -1136,15 +1662,23 @@ footer{
 
     </div>
 
-    <div class="gallery" id="galleryBox"></div>
+    <div
+        class="gallery"
+        id="galleryBox">
+    </div>
 
 </section>
 
 
-<!-- 关于 -->
+<!-- =====================================================
+     关于
+===================================================== -->
+
 <section class="section">
 
-    <h2>💎 关于阿木</h2>
+    <h2>
+        💎 关于阿木
+    </h2>
 
     <p style="
         max-width:700px;
@@ -1169,10 +1703,17 @@ footer{
 </section>
 
 
-<!-- AI -->
-<section class="section" id="chat">
+<!-- =====================================================
+     AI
+===================================================== -->
 
-    <h2>🤖 阿木 AI 小助手</h2>
+<section
+    class="section"
+    id="chat">
+
+    <h2>
+        🤖 阿木 AI 小助手
+    </h2>
 
     <div class="chat">
 
@@ -1180,24 +1721,37 @@ footer{
             🤖 阿木小助手
         </div>
 
-        <div class="messages" id="messages">
+        <div
+            class="messages"
+            id="messages">
 
             <div class="msg bot">
+
                 你好！👋
+
                 <br><br>
+
                 我是阿木网站的小助手。
+
                 <br><br>
+
                 你可以问我：
+
                 <br>
                 「你是谁」
+
                 <br>
                 「阿木是谁」
+
                 <br>
                 「现在几点」
+
                 <br>
                 「换颜色」
+
                 <br>
                 「玩游戏」
+
             </div>
 
         </div>
@@ -1232,31 +1786,56 @@ footer{
 </section>
 
 
-<!-- 控制 -->
+<!-- =====================================================
+     网站控制
+===================================================== -->
+
 <section class="section">
 
-    <h2>⚙️ 网站控制</h2>
+    <h2>
+        ⚙️ 网站控制
+    </h2>
 
     <div class="controls">
 
-        <button class="control" onclick="randomTheme()">
+        <button
+            class="control"
+            onclick="randomTheme()">
+
             🎨 随机颜色
+
         </button>
 
-        <button class="control" onclick="toggleLight()">
+        <button
+            class="control"
+            onclick="toggleLight()">
+
             🌙 夜间 / 白天
+
         </button>
 
-        <button class="control" onclick="fireworks()">
+        <button
+            class="control"
+            onclick="fireworks()">
+
             🎆 烟花
+
         </button>
 
-        <button class="control" onclick="welcome()">
+        <button
+            class="control"
+            onclick="welcome()">
+
             👋 欢迎
+
         </button>
 
-        <button class="control" onclick="toggleMusic()">
+        <button
+            class="control"
+            onclick="toggleMusic()">
+
             🎵 音乐
+
         </button>
 
     </div>
@@ -1266,17 +1845,34 @@ footer{
 </main>
 
 
-<!-- 音乐 -->
-<div class="music" id="music" onclick="toggleMusic()">
+<!-- =====================================================
+     音乐
+===================================================== -->
+
+<div
+    class="music"
+    id="music"
+    onclick="toggleMusic()">
+
     🔇 音乐：关闭
+
 </div>
 
 
 <!-- 返回顶部 -->
-<button id="top" onclick="goTop()">
+
+<button
+    id="top"
+    onclick="goTop()">
+
     ⬆️
+
 </button>
 
+
+<!-- =====================================================
+     Footer
+===================================================== -->
 
 <footer>
 
@@ -1292,11 +1888,465 @@ footer{
 <script>
 
 /* =====================================================
+   登录 / 注册系统
+===================================================== */
+
+let authMode = "login";
+
+
+/* 登录页面星星 */
+
+const authStars =
+    document.getElementById("authStars");
+
+const authIcons = [
+    "✨",
+    "⭐",
+    "🌟",
+    "💫",
+    "✦"
+];
+
+for(let i=0;i<35;i++){
+
+    const star =
+        document.createElement("div");
+
+    star.className="auth-star";
+
+    star.textContent =
+        authIcons[
+            Math.floor(
+                Math.random()*authIcons.length
+            )
+        ];
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.fontSize =
+        10+Math.random()*22+"px";
+
+    star.style.animationDuration =
+        4+Math.random()*8+"s";
+
+    star.style.animationDelay =
+        Math.random()*8+"s";
+
+    authStars.appendChild(star);
+}
+
+
+/* 获取用户 */
+
+function getUsers(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem("amuUsers") || "{}"
+        );
+
+    }catch(e){
+
+        return {};
+
+    }
+
+}
+
+
+/* 保存用户 */
+
+function saveUsers(users){
+
+    localStorage.setItem(
+        "amuUsers",
+        JSON.stringify(users)
+    );
+
+}
+
+
+/* 切换登录 / 注册 */
+
+function switchAuth(){
+
+    const title =
+        document.getElementById("authTitle");
+
+    const subtitle =
+        document.getElementById("authSubtitle");
+
+    const button =
+        document.getElementById("authButton");
+
+    const confirmBox =
+        document.getElementById("confirmBox");
+
+    const switchText =
+        document.getElementById("switchText");
+
+    const switchButton =
+        document.getElementById("switchButton");
+
+    const message =
+        document.getElementById("authMessage");
+
+    message.textContent="";
+
+    message.style.color="#ff5577";
+
+    if(authMode==="login"){
+
+        authMode="register";
+
+        title.textContent=
+            "创建阿木账号";
+
+        subtitle.textContent=
+            "注册后即可进入超级网站";
+
+        button.textContent=
+            "✨ 注册账号";
+
+        confirmBox.style.display=
+            "block";
+
+        switchText.textContent=
+            "已经有账号？";
+
+        switchButton.textContent=
+            "立即登录";
+
+    }else{
+
+        authMode="login";
+
+        title.textContent=
+            "登录阿木网站";
+
+        subtitle.textContent=
+            "欢迎回来！";
+
+        button.textContent=
+            "🚀 登录";
+
+        confirmBox.style.display=
+            "none";
+
+        switchText.textContent=
+            "还没有账号？";
+
+        switchButton.textContent=
+            "立即注册";
+
+    }
+
+}
+
+
+/* 显示密码 */
+
+function togglePassword(){
+
+    const input =
+        document.getElementById("authPassword");
+
+    const eye =
+        document.getElementById("passwordEye");
+
+    if(input.type==="password"){
+
+        input.type="text";
+
+        eye.textContent="🙈";
+
+    }else{
+
+        input.type="password";
+
+        eye.textContent="👁️";
+
+    }
+
+}
+
+
+/* 登录 / 注册 */
+
+function submitAuth(){
+
+    const username =
+        document
+        .getElementById("authUsername")
+        .value.trim();
+
+    const password =
+        document
+        .getElementById("authPassword")
+        .value;
+
+    const confirm =
+        document
+        .getElementById("authConfirm")
+        .value;
+
+    const message =
+        document.getElementById("authMessage");
+
+    if(username.length<2){
+
+        message.textContent=
+            "⚠️ 用户名至少需要 2 个字符";
+
+        return;
+
+    }
+
+    if(password.length<6){
+
+        message.textContent=
+            "⚠️ 密码至少需要 6 个字符";
+
+        return;
+
+    }
+
+    const users=getUsers();
+
+
+    /* 注册 */
+
+    if(authMode==="register"){
+
+        if(users[username]){
+
+            message.textContent=
+                "❌ 这个用户名已经注册了";
+
+            return;
+
+        }
+
+        if(password!==confirm){
+
+            message.textContent=
+                "❌ 两次输入的密码不一致";
+
+            return;
+
+        }
+
+        users[username]={
+            password:password,
+            createdAt:new Date().toISOString()
+        };
+
+        saveUsers(users);
+
+        localStorage.setItem(
+            "amuCurrentUser",
+            username
+        );
+
+        message.style.color="#00ff99";
+
+        message.textContent=
+            "🎉 注册成功！正在进入网站...";
+
+        setTimeout(showWebsite,700);
+
+        return;
+
+    }
+
+
+    /* 登录 */
+
+    if(!users[username]){
+
+        message.textContent=
+            "❌ 用户不存在，请先注册";
+
+        return;
+
+    }
+
+    if(users[username].password!==password){
+
+        message.textContent=
+            "❌ 密码错误，请重新输入";
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        "amuCurrentUser",
+        username
+    );
+
+    message.style.color="#00ff99";
+
+    message.textContent=
+        "✅ 登录成功！正在进入网站...";
+
+    setTimeout(showWebsite,500);
+
+}
+
+
+/* 显示网站 */
+
+function showWebsite(){
+
+    const authPage =
+        document.getElementById("authPage");
+
+    const currentUser =
+        localStorage.getItem("amuCurrentUser");
+
+    const userPanel =
+        document.getElementById("userPanel");
+
+    const userName =
+        document.getElementById("currentUser");
+
+    if(currentUser){
+
+        userName.textContent=
+            currentUser;
+
+        userPanel.style.display=
+            "block";
+
+    }
+
+    authPage.style.opacity="0";
+
+    authPage.style.transition=
+        "opacity .5s ease";
+
+    setTimeout(()=>{
+
+        authPage.style.display="none";
+
+        document.body.style.overflowX=
+            "hidden";
+
+        document.body.style.overflowY=
+            "auto";
+
+    },500);
+
+}
+
+
+/* 退出 */
+
+function logout(){
+
+    if(!confirm("确定要退出登录吗？")){
+        return;
+    }
+
+    localStorage.removeItem(
+        "amuCurrentUser"
+    );
+
+    location.reload();
+
+}
+
+
+/* 页面加载检查 */
+
+(function(){
+
+    const currentUser =
+        localStorage.getItem(
+            "amuCurrentUser"
+        );
+
+    if(currentUser){
+
+        document
+            .getElementById("currentUser")
+            .textContent=currentUser;
+
+        document
+            .getElementById("userPanel")
+            .style.display="block";
+
+        document
+            .getElementById("authPage")
+            .style.display="none";
+
+        document.body.style.overflowY=
+            "auto";
+
+    }else{
+
+        document
+            .getElementById("userPanel")
+            .style.display="none";
+
+        document.body.style.overflow="hidden";
+
+    }
+
+})();
+
+
+/* 回车登录 */
+
+document
+    .getElementById("authUsername")
+    .addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key==="Enter"){
+                submitAuth();
+            }
+
+        }
+    );
+
+document
+    .getElementById("authPassword")
+    .addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key==="Enter"){
+                submitAuth();
+            }
+
+        }
+    );
+
+document
+    .getElementById("authConfirm")
+    .addEventListener(
+        "keydown",
+        function(e){
+
+            if(e.key==="Enter"){
+                submitAuth();
+            }
+
+        }
+    );
+
+
+/* =====================================================
    星空
 ===================================================== */
 
 const starBox =
-document.getElementById("stars");
+    document.getElementById("stars");
 
 const starIcons=[
     "✨","⭐","🌟","💫","✦"
@@ -1305,28 +2355,28 @@ const starIcons=[
 for(let i=0;i<35;i++){
 
     const star=
-    document.createElement("div");
+        document.createElement("div");
 
     star.className="star";
 
     star.textContent=
-    starIcons[
-        Math.floor(
-            Math.random()*starIcons.length
-        )
-    ];
+        starIcons[
+            Math.floor(
+                Math.random()*starIcons.length
+            )
+        ];
 
     star.style.left=
-    Math.random()*100+"%";
+        Math.random()*100+"%";
 
     star.style.fontSize=
-    10+Math.random()*22+"px";
+        10+Math.random()*22+"px";
 
     star.style.animationDuration=
-    4+Math.random()*8+"s";
+        4+Math.random()*8+"s";
 
     star.style.animationDelay=
-    Math.random()*8+"s";
+        Math.random()*8+"s";
 
     starBox.appendChild(star);
 }
@@ -1341,20 +2391,20 @@ function updateClock(){
     const now=new Date();
 
     const h=
-    String(now.getHours())
-    .padStart(2,"0");
+        String(now.getHours())
+        .padStart(2,"0");
 
     const m=
-    String(now.getMinutes())
-    .padStart(2,"0");
+        String(now.getMinutes())
+        .padStart(2,"0");
 
     const s=
-    String(now.getSeconds())
-    .padStart(2,"0");
+        String(now.getSeconds())
+        .padStart(2,"0");
 
     document.getElementById("time")
-    .textContent=
-    `${h}:${m}:${s}`;
+        .textContent=
+        `${h}:${m}:${s}`;
 
     const days=[
         "星期日",
@@ -1367,11 +2417,11 @@ function updateClock(){
     ];
 
     document.getElementById("date")
-    .textContent=
-    `${now.getFullYear()}年
-     ${now.getMonth()+1}月
-     ${now.getDate()}日
-     ${days[now.getDay()]}`;
+        .textContent=
+        `${now.getFullYear()}年
+         ${now.getMonth()+1}月
+         ${now.getDate()}日
+         ${days[now.getDay()]}`;
 
 }
 
@@ -1385,9 +2435,9 @@ setInterval(updateClock,1000);
 ===================================================== */
 
 let visits=
-Number(
-    localStorage.getItem("amuVisits")||0
-);
+    Number(
+        localStorage.getItem("amuVisits")||0
+    );
 
 visits++;
 
@@ -1397,7 +2447,7 @@ localStorage.setItem(
 );
 
 document.getElementById("visits")
-.textContent=visits;
+    .textContent=visits;
 
 
 /* =====================================================
@@ -1422,18 +2472,18 @@ const themes=[
 function randomTheme(){
 
     const t=
-    themes[
-        Math.floor(
-            Math.random()*themes.length
-        )
-    ];
+        themes[
+            Math.floor(
+                Math.random()*themes.length
+            )
+        ];
 
     document.body.style.background=
-    `linear-gradient(
-        135deg,
-        ${t[0]},
-        ${t[1]}
-    )`;
+        `linear-gradient(
+            135deg,
+            ${t[0]},
+            ${t[1]}
+        )`;
 
 }
 
@@ -1458,7 +2508,9 @@ function toggleLight(){
 if(
     localStorage.getItem("amuLight")==="yes"
 ){
+
     document.body.classList.add("light");
+
 }
 
 
@@ -1471,17 +2523,17 @@ let calendarDate=new Date();
 function drawCalendar(){
 
     const year=
-    calendarDate.getFullYear();
+        calendarDate.getFullYear();
 
     const month=
-    calendarDate.getMonth();
+        calendarDate.getMonth();
 
     document.getElementById("calendarTitle")
-    .textContent=
-    `${year}年 ${month+1}月`;
+        .textContent=
+        `${year}年 ${month+1}月`;
 
     const box=
-    document.getElementById("calendar");
+        document.getElementById("calendar");
 
     box.innerHTML="";
 
@@ -1492,7 +2544,7 @@ function drawCalendar(){
     weeks.forEach(w=>{
 
         const d=
-        document.createElement("div");
+            document.createElement("div");
 
         d.className="week";
 
@@ -1503,15 +2555,15 @@ function drawCalendar(){
     });
 
     const first=
-    new Date(year,month,1).getDay();
+        new Date(year,month,1).getDay();
 
     const total=
-    new Date(year,month+1,0).getDate();
+        new Date(year,month+1,0).getDate();
 
     for(let i=0;i<first;i++){
 
         const blank=
-        document.createElement("div");
+            document.createElement("div");
 
         box.appendChild(blank);
 
@@ -1522,7 +2574,7 @@ function drawCalendar(){
     for(let d=1;d<=total;d++){
 
         const cell=
-        document.createElement("div");
+            document.createElement("div");
 
         cell.className="day";
 
@@ -1533,7 +2585,9 @@ function drawCalendar(){
             month===today.getMonth() &&
             year===today.getFullYear()
         ){
+
             cell.classList.add("today");
+
         }
 
         box.appendChild(cell);
@@ -1560,43 +2614,44 @@ drawCalendar();
 ===================================================== */
 
 let secret=
-Math.floor(Math.random()*10)+1;
+    Math.floor(Math.random()*10)+1;
 
 function guessNumber(){
 
     const value=
-    Number(
-        document.getElementById("guess").value
-    );
+        Number(
+            document.getElementById("guess").value
+        );
 
     const result=
-    document.getElementById("gameResult");
+        document.getElementById("gameResult");
 
     if(value<1||value>10){
 
         result.textContent=
-        "请输入 1～10！";
+            "请输入 1～10！";
 
         return;
+
     }
 
     if(value===secret){
 
         result.textContent=
-        "🎉 猜中了！太厉害了！";
+            "🎉 猜中了！太厉害了！";
 
         secret=
-        Math.floor(Math.random()*10)+1;
+            Math.floor(Math.random()*10)+1;
 
     }else if(value<secret){
 
         result.textContent=
-        "⬆️ 小了，再试一次！";
+            "⬆️ 小了，再试一次！";
 
     }else{
 
         result.textContent=
-        "⬇️ 大了，再试一次！";
+            "⬇️ 大了，再试一次！";
 
     }
 
@@ -1613,10 +2668,10 @@ let reactionReady=false;
 function reactionGame(){
 
     const btn=
-    document.getElementById("reactionBtn");
+        document.getElementById("reactionBtn");
 
     const text=
-    document.getElementById("reactionText");
+        document.getElementById("reactionText");
 
     if(!reactionReady){
 
@@ -1625,22 +2680,23 @@ function reactionGame(){
         btn.textContent="等待...";
 
         text.textContent=
-        "🟡 准备！等按钮变绿再点击！";
+            "🟡 准备！等按钮变绿再点击！";
 
         const delay=
-        1000+Math.random()*3000;
+            1000+Math.random()*3000;
 
         setTimeout(()=>{
 
             if(!reactionReady)return;
 
             reactionStart=
-            performance.now();
+                performance.now();
 
-            btn.textContent="🟢 点击！";
+            btn.textContent=
+                "🟢 点击！";
 
             text.textContent=
-            "🔥 快点击！";
+                "🔥 快点击！";
 
         },delay);
 
@@ -1649,23 +2705,26 @@ function reactionGame(){
         if(reactionStart===0){
 
             text.textContent=
-            "😂 太早了！重新开始！";
+                "😂 太早了！重新开始！";
 
         }else{
 
             const result=
-            Math.round(
-                performance.now()-reactionStart
-            );
+                Math.round(
+                    performance.now()-reactionStart
+                );
 
             text.textContent=
-            `⚡ 你的反应速度：${result} ms`;
+                `⚡ 你的反应速度：${result} ms`;
 
         }
 
         reactionReady=false;
+
         reactionStart=0;
-        btn.textContent="再来一次";
+
+        btn.textContent=
+            "再来一次";
 
     }
 
@@ -1676,42 +2735,48 @@ function reactionGame(){
    相册
 ===================================================== */
 
-document.getElementById("imageInput")
-.addEventListener("change",function(){
+document
+    .getElementById("imageInput")
+    .addEventListener(
+        "change",
+        function(){
 
-    const files=[...this.files];
+            const files=[...this.files];
 
-    const box=
-    document.getElementById("galleryBox");
+            const box=
+                document.getElementById(
+                    "galleryBox"
+                );
 
-    files.forEach(file=>{
+            files.forEach(file=>{
 
-        const reader=
-        new FileReader();
+                const reader=
+                    new FileReader();
 
-        reader.onload=function(e){
+                reader.onload=function(e){
 
-            const div=
-            document.createElement("div");
+                    const div=
+                        document.createElement("div");
 
-            div.className="photo";
+                    div.className="photo";
 
-            const img=
-            document.createElement("img");
+                    const img=
+                        document.createElement("img");
 
-            img.src=e.target.result;
+                    img.src=e.target.result;
 
-            div.appendChild(img);
+                    div.appendChild(img);
 
-            box.appendChild(div);
+                    box.appendChild(div);
 
-        };
+                };
 
-        reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
 
-    });
+            });
 
-});
+        }
+    );
 
 
 /* =====================================================
@@ -1721,20 +2786,20 @@ document.getElementById("imageInput")
 function addChat(text,type){
 
     const box=
-    document.getElementById("messages");
+        document.getElementById("messages");
 
     const div=
-    document.createElement("div");
+        document.createElement("div");
 
     div.className=
-    "msg "+type;
+        "msg "+type;
 
     div.textContent=text;
 
     box.appendChild(div);
 
     box.scrollTop=
-    box.scrollHeight;
+        box.scrollHeight;
 
     saveChat();
 
@@ -1744,10 +2809,10 @@ function addChat(text,type){
 function sendChat(){
 
     const input=
-    document.getElementById("chatInput");
+        document.getElementById("chatInput");
 
     const text=
-    input.value.trim();
+        input.value.trim();
 
     if(!text)return;
 
@@ -1756,10 +2821,10 @@ function sendChat(){
     input.value="";
 
     const box=
-    document.getElementById("messages");
+        document.getElementById("messages");
 
     const typing=
-    document.createElement("div");
+        document.createElement("div");
 
     typing.className="msg bot";
 
@@ -1775,7 +2840,8 @@ function sendChat(){
 
     box.appendChild(typing);
 
-    box.scrollTop=box.scrollHeight;
+    box.scrollTop=
+        box.scrollHeight;
 
     setTimeout(()=>{
 
@@ -1793,7 +2859,8 @@ function sendChat(){
 
 function getReply(text){
 
-    const t=text.toLowerCase();
+    const t=
+        text.toLowerCase();
 
     if(
         text.includes("你好")||
@@ -1802,69 +2869,95 @@ function getReply(text){
         t.includes("hello")||
         t.includes("hi")
     ){
+
         return "你好呀！👋 很高兴见到你！";
+
     }
 
     if(
         text.includes("你是谁")||
         text.includes("你叫什么")
     ){
+
         return "我是阿木网站的小助手 🤖！";
+
     }
 
     if(text.includes("阿木")){
+
         return "阿木就是这个网站的主人！😎";
+
     }
 
     if(
         text.includes("网站")||
         text.includes("网页")
     ){
+
         return "这是一个使用 HTML、CSS 和 JavaScript 制作的超级炫酷网站！🚀";
+
     }
 
     if(
         text.includes("颜色")||
         text.includes("换颜色")
     ){
+
         randomTheme();
+
         return "🎨 已经帮你换了一个新主题！";
+
     }
 
     if(
         text.includes("时间")||
         text.includes("几点")
     ){
-        return "现在时间是 ⏰ "+document.getElementById("time").textContent;
+
+        return "现在时间是 ⏰ "+
+            document.getElementById("time")
+            .textContent;
+
     }
 
     if(text.includes("游戏")){
+
         return "🎮 你可以玩猜数字或者反应速度测试！";
+
     }
 
     if(
         text.includes("谢谢")||
         text.includes("感谢")
     ){
+
         return "不用客气！😊";
+
     }
 
     if(
         text.includes("再见")||
         text.includes("拜拜")
     ){
+
         return "再见！👋 下次再来！";
+
     }
 
     if(text.includes("厉害")){
+
         return "当然啦！😎 阿木小助手正在努力升级！";
+
     }
 
     if(text.includes("音乐")){
+
         return "🎵 点击左下角音乐按钮即可播放电子音效。";
+
     }
 
     const replies=[
+
         "这个问题很有意思！🤔",
         "让我想一想……🤖",
         "我正在认真思考！🧠",
@@ -1872,6 +2965,7 @@ function getReply(text){
         "继续问我吧！✨",
         "阿木小助手收到！📡",
         "这个问题值得研究一下！🔬"
+
     ];
 
     return replies[
@@ -1891,18 +2985,19 @@ function saveChat(){
 
     localStorage.setItem(
         "amuChat",
-        document.getElementById("messages").innerHTML
+        document.getElementById("messages")
+            .innerHTML
     );
 
 }
 
 const savedChat=
-localStorage.getItem("amuChat");
+    localStorage.getItem("amuChat");
 
 if(savedChat){
 
     document.getElementById("messages")
-    .innerHTML=savedChat;
+        .innerHTML=savedChat;
 
 }
 
@@ -1916,13 +3011,13 @@ function clearChat(){
     localStorage.removeItem("amuChat");
 
     document.getElementById("messages")
-    .innerHTML=`
-        <div class="msg bot">
-            聊天记录已经清空啦！🧹
-            <br><br>
-            你好！我是阿木小助手 🤖
-        </div>
-    `;
+        .innerHTML=`
+            <div class="msg bot">
+                聊天记录已经清空啦！🧹
+                <br><br>
+                你好！我是阿木小助手 🤖
+            </div>
+        `;
 
 }
 
@@ -1934,6 +3029,7 @@ function clearChat(){
 function randomQuestion(){
 
     const q=[
+
         "你好",
         "你是谁",
         "阿木是谁",
@@ -1943,14 +3039,19 @@ function randomQuestion(){
         "有什么游戏",
         "你厉害吗",
         "音乐怎么打开"
+
     ];
 
     document.getElementById("chatInput")
-    .value=
-    q[Math.floor(Math.random()*q.length)];
+        .value=
+        q[
+            Math.floor(
+                Math.random()*q.length
+            )
+        ];
 
     document.getElementById("chatInput")
-    .focus();
+        .focus();
 
 }
 
@@ -1958,7 +3059,9 @@ function randomQuestion(){
 function enterChat(e){
 
     if(e.key==="Enter"){
+
         sendChat();
+
     }
 
 }
@@ -1971,7 +3074,7 @@ function enterChat(e){
 function toggleMenu(){
 
     document.getElementById("nav")
-    .classList.toggle("show");
+        .classList.toggle("show");
 
 }
 
@@ -1980,33 +3083,41 @@ function toggleMenu(){
    返回顶部 + 进度
 ===================================================== */
 
-window.addEventListener("scroll",()=>{
+window.addEventListener(
+    "scroll",
+    ()=>{
 
-    const scrollTop=
-    window.scrollY;
+        const scrollTop=
+            window.scrollY;
 
-    const height=
-    document.documentElement.scrollHeight-
-    document.documentElement.clientHeight;
+        const height=
+            document.documentElement
+                .scrollHeight-
+            document.documentElement
+                .clientHeight;
 
-    document.getElementById("progress")
-    .style.width=
-    (scrollTop/height*100)+"%";
+        document.getElementById("progress")
+            .style.width=
+            (scrollTop/height*100)+"%";
 
-    document.getElementById("top")
-    .style.display=
-    scrollTop>500
-    ? "block"
-    : "none";
+        document.getElementById("top")
+            .style.display=
+            scrollTop>500
+            ? "block"
+            : "none";
 
-});
+    }
+);
 
 
 function goTop(){
 
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 
 }
@@ -2021,28 +3132,36 @@ document.addEventListener(
     e=>{
 
         const light=
-        document.getElementById("cursorLight");
+            document.getElementById(
+                "cursorLight"
+            );
 
         light.style.left=
-        e.clientX+"px";
+            e.clientX+"px";
 
         light.style.top=
-        e.clientY+"px";
+            e.clientY+"px";
 
     }
 );
 
 
 /* =====================================================
-   点击粒子
+   点击特效
 ===================================================== */
 
 document.addEventListener(
     "click",
     e=>{
 
+        if(
+            e.target.closest("#authPage")
+        ){
+            return;
+        }
+
         const el=
-        document.createElement("div");
+            document.createElement("div");
 
         el.className="click";
 
@@ -2056,17 +3175,17 @@ document.addEventListener(
         ];
 
         el.textContent=
-        emojis[
-            Math.floor(
-                Math.random()*emojis.length
-            )
-        ];
+            emojis[
+                Math.floor(
+                    Math.random()*emojis.length
+                )
+            ];
 
         el.style.left=
-        e.clientX+"px";
+            e.clientX+"px";
 
         el.style.top=
-        e.clientY+"px";
+            e.clientY+"px";
 
         document.body.appendChild(el);
 
@@ -2088,21 +3207,19 @@ function fireworks(){
     for(let i=0;i<45;i++){
 
         const f=
-        document.createElement("div");
+            document.createElement("div");
 
         f.className="firework";
 
-        f.style.left=
-        "50%";
+        f.style.left="50%";
 
-        f.style.top=
-        "45%";
+        f.style.top="45%";
 
         const angle=
-        Math.random()*Math.PI*2;
+            Math.random()*Math.PI*2;
 
         const distance=
-        80+Math.random()*250;
+            80+Math.random()*250;
 
         f.style.setProperty(
             "--x",
@@ -2159,7 +3276,7 @@ let timer=null;
 function toggleMusic(){
 
     const status=
-    document.getElementById("music");
+        document.getElementById("music");
 
     if(playing){
 
@@ -2168,12 +3285,15 @@ function toggleMusic(){
         clearInterval(timer);
 
         if(audio){
+
             audio.close();
+
             audio=null;
+
         }
 
         status.textContent=
-        "🔇 音乐：关闭";
+            "🔇 音乐：关闭";
 
         return;
 
@@ -2182,15 +3302,15 @@ function toggleMusic(){
     try{
 
         audio=
-        new(
-            window.AudioContext||
-            window.webkitAudioContext
-        )();
+            new(
+                window.AudioContext||
+                window.webkitAudioContext
+            )();
 
         playing=true;
 
         status.textContent=
-        "🔊 音乐：播放中";
+            "🔊 音乐：播放中";
 
         playNotes();
 
@@ -2208,256 +3328,56 @@ function toggleMusic(){
 function playNotes(){
 
     const notes=[
+
         261.63,
         329.63,
         392,
         523.25,
         392,
         329.63
+
     ];
 
     let index=0;
 
     timer=
-    setInterval(()=>{
+        setInterval(()=>{
 
-        if(!playing)return;
+            if(!playing)return;
 
-        const osc=
-        audio.createOscillator();
+            const osc=
+                audio.createOscillator();
 
-        const gain=
-        audio.createGain();
+            const gain=
+                audio.createGain();
 
-        osc.type="sine";
+            osc.type="sine";
 
-        osc.frequency.value=
-        notes[index];
+            osc.frequency.value=
+                notes[index];
 
-        gain.gain.value=.025;
+            gain.gain.value=.025;
 
-        osc.connect(gain);
+            osc.connect(gain);
 
-        gain.connect(
-            audio.destination
-        );
+            gain.connect(
+                audio.destination
+            );
 
-        osc.start();
+            osc.start();
 
-        osc.stop(
-            audio.currentTime+.18
-        );
+            osc.stop(
+                audio.currentTime+.18
+            );
 
-        index=
-        (index+1)%notes.length;
+            index=
+                (index+1)%notes.length;
 
-    },250);
+        },250);
 
 }
 
 </script>
-/* =========================
-   登录 / 注册系统
-========================= */
 
-#authPage{
-    position:fixed;
-    inset:0;
-    z-index:999999;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-        radial-gradient(circle at 20% 20%,#00ffff33,transparent 30%),
-        radial-gradient(circle at 80% 80%,#ff00ff33,transparent 30%),
-        linear-gradient(135deg,#050014,#09001f,#001b2e);
-    overflow:auto;
-}
-
-.auth-box{
-    width:420px;
-    max-width:92%;
-    padding:40px 30px;
-    background:rgba(5,5,20,.94);
-    border:2px solid cyan;
-    border-radius:25px;
-    box-shadow:
-        0 0 20px cyan,
-        0 0 60px rgba(0,255,255,.25);
-    text-align:center;
-    animation:authShow .6s ease;
-}
-
-@keyframes authShow{
-    from{
-        opacity:0;
-        transform:scale(.8) translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
-}
-
-.auth-logo{
-    font-size:40px;
-    margin-bottom:10px;
-    color:cyan;
-    text-shadow:
-        0 0 10px cyan,
-        0 0 30px cyan;
-}
-
-.auth-title{
-    font-size:30px;
-    margin-bottom:8px;
-}
-
-.auth-subtitle{
-    color:#888;
-    margin-bottom:25px;
-}
-
-.auth-input{
-    width:100%;
-    padding:15px;
-    margin:8px 0;
-    background:#090909;
-    color:white;
-    border:1px solid #444;
-    border-radius:12px;
-    outline:none;
-    transition:.3s;
-}
-
-.auth-input:focus{
-    border-color:cyan;
-    box-shadow:0 0 12px rgba(0,255,255,.5);
-}
-
-.password-box{
-    position:relative;
-}
-
-.password-box input{
-    padding-right:50px;
-}
-
-.eye{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
-    cursor:pointer;
-    color:#aaa;
-}
-
-.auth-btn{
-    width:100%;
-    padding:14px;
-    margin-top:15px;
-    border:0;
-    border-radius:30px;
-    background:linear-gradient(
-        90deg,
-        cyan,
-        #008cff,
-        #ff00ff
-    );
-    color:white;
-    font-size:17px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.auth-btn:hover{
-    transform:scale(1.03);
-    box-shadow:
-        0 0 15px cyan,
-        0 0 30px #ff00ff;
-}
-
-.auth-switch{
-    margin-top:20px;
-    color:#888;
-}
-
-.auth-switch span{
-    color:cyan;
-    cursor:pointer;
-}
-
-.auth-message{
-    min-height:24px;
-    margin-top:15px;
-    color:#ff5577;
-    font-size:14px;
-}
-
-.auth-stars{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    overflow:hidden;
-}
-
-.auth-star{
-    position:absolute;
-    color:white;
-    animation:authStar 5s linear infinite;
-    text-shadow:0 0 10px cyan;
-}
-
-@keyframes authStar{
-    from{
-        transform:translateY(110vh);
-        opacity:0;
-    }
-    20%{opacity:1}
-    80%{opacity:1}
-    to{
-        transform:translateY(-20vh);
-        opacity:0;
-    }
-}
-
-/* 登录后用户信息 */
-.user-panel{
-    position:fixed;
-    right:20px;
-    top:80px;
-    z-index:16000;
-    padding:10px 15px;
-    background:rgba(0,0,0,.8);
-    border:1px solid cyan;
-    border-radius:20px;
-    color:cyan;
-}
-
-.logout-btn{
-    margin-left:10px;
-    padding:5px 10px;
-    border:1px solid #ff00ff;
-    border-radius:10px;
-    background:#111;
-    color:#ff00ff;
-    cursor:pointer;
-}
-
-@media(max-width:500px){
-
-    .auth-box{
-        padding:30px 20px;
-    }
-
-    .auth-logo{
-        font-size:32px;
-    }
-
-    .auth-title{
-        font-size:25px;
-    }
-}
 </body>
 </html>
