@@ -668,7 +668,26 @@ body {
         © 2026 我的炫酷网站
 
     </footer>
+<button onclick="changeColor()" class="color-button">
+    🎨 换一个颜色
+</button>
 
+<script>
+function changeColor() {
+    const colors = [
+        ["#667eea", "#764ba2"],
+        ["#ff416c", "#ff4b2b"],
+        ["#00c6ff", "#0072ff"],
+        ["#11998e", "#38ef7d"],
+        ["#8e2de2", "#4a00e0"]
+    ];
+
+    const random = colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.style.background =
+        `linear-gradient(135deg, ${random[0]}, ${random[1]})`;
+}
+</script>
 </body>
 </html>
 ```
